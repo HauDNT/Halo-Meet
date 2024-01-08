@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phòng họp của bạn</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        
+
         .container {
             background-color: #27374D;
             height: 100vh;
         }
-        
+
         .screen {
             margin: auto;
             position: relative;
@@ -23,9 +24,9 @@
             background-color: azure;
             height: 80%;
             width: 95%;
-            border-radius: 5px; 
+            border-radius: 5px;
         }
-        
+
         .toolbar {
             display: flex;
             width: 100%;
@@ -33,7 +34,7 @@
             position: relative;
             bottom: -10%;
         }
-        
+
         .toolbar-left,
         .toolbar-right {
             background-color: #DDE6ED;
@@ -48,7 +49,7 @@
             font-size: 20px;
             font-style: bold;
         }
-        
+
         .toolbar-center {
             background-color: #DDE6ED;
             width: 70%;
@@ -57,7 +58,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .btn-wrapper {
             width: 45px;
             height: 45px;
@@ -66,25 +67,31 @@
             background-color: #FFFBF5;
             border-radius: 50%;
         }
-        
+
         .toolbar-btn {
             display: block;
         }
-        
+
         .btn-icon {
             width: 95%;
-            height: 95%; 
+            height: 95%;
         }
     </style>
+
+    <!-- import the webpage's StringEE javascript file -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.20.0/dist/axios.min.js"></script>
+    <script src="https://cdn.stringee.com/sdk/web/2.2.1/stringee-web-sdk.min.js"></script>
 </head>
+
 <body>
-    <div class="container">
+    <div class="container" id="app">
         <div class="screen">
 
         </div>
         <div class="toolbar">
             <div class="toolbar-left time-linkroom">
-                16:00 | cdp-wpcb-hxm
+                16:00 | {{roomId}}
             </div>
             <div class="toolbar-center">
                 <div class="btn-wrapper">
@@ -118,4 +125,7 @@
         </div>
     </div>
 </body>
+
+    <script src="../api/api.js"></script>
+    <script src="../GiaoDienPhongHop/script.js"></script>
 </html>
