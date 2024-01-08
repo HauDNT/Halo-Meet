@@ -7,10 +7,11 @@ const vm = new Vue({
     roomId: "",
     roomToken: "",
     room: undefined,
-    callClient: undefined
+    callClient: undefined,
+    vueMessage: 'Vue Hello'
   },
   computed: {
-    roomUrl: function() {
+    roomUrl: function () {
       return `https://${location.hostname}?room=${this.roomId}`;
     }
   },
@@ -26,7 +27,7 @@ const vm = new Vue({
     }
   },
   methods: {
-    authen: function() {
+    authen: function () {
       return new Promise(async resolve => {
         const userId = `${(Math.random() * 100000).toFixed(6)}`;
         const userToken = await api.getUserToken(userId);
@@ -35,7 +36,7 @@ const vm = new Vue({
         if (!this.callClient) {
           const client = new StringeeClient();
 
-          client.on("authen", function(res) {
+          client.on("authen", function (res) {
             console.log("on authen: ", res);
             resolve(res);
           });
@@ -44,14 +45,16 @@ const vm = new Vue({
         this.callClient.connect(userToken);
       });
     },
-    publish: async function(screenSharing = false) {
+    publish: async function (screenSharing = false) {
       const localTrack = await StringeeVideo.createLocalVideoTrack(
-        this.callClient,
-        {
+        this.callClient, {
           audio: true,
           video: true,
           screen: screenSharing,
-          videoDimensions: { width: 640, height: 360 }
+          videoDimensions: {
+            width: 640,
+            height: 360
+          }
         }
       );
 
@@ -63,7 +66,10 @@ const vm = new Vue({
         this.roomToken
       );
       const room = roomData.room;
-      console.log({ roomData, room });
+      console.log({
+        roomData,
+        room
+      });
 
       if (!this.room) {
         this.room = room;
@@ -95,43 +101,56 @@ const vm = new Vue({
       await room.publish(localTrack);
       console.log("room publish successful");
     },
-    createRoom: async function() {
+    createRoom: async function () {
       const room = await api.createRoom();
-      const { roomId } = room;
+      const {
+        roomId
+      } = room;
       const roomToken = await api.getRoomToken(roomId);
 
       this.roomId = roomId;
       this.roomToken = roomToken;
-      console.log({ roomId, roomToken });
+      console.log({
+        roomId,
+        roomToken
+      });
 
       await this.authen();
       await this.publish();
     },
-    join: async function() {
+    join: async function () {
       const roomToken = await api.getRoomToken(this.roomId);
       this.roomToken = roomToken;
 
       await this.authen();
       await this.publish();
     },
-    joinWithId: async function() {
+    joinWithId: async function () {
       const roomId = prompt("Dán Room ID vào đây nhé!");
       if (roomId) {
         this.roomId = roomId;
         await this.join();
       }
     },
-    subscribe: async function(trackInfo) {
+    subscribe: async function (trackInfo) {
       const track = await this.room.subscribe(trackInfo.serverId);
       track.on("ready", () => {
         const videoElement = track.attach();
         this.addVideo(videoElement);
       });
     },
-    addVideo: function(video) {
+    addVideo: function (video) {
       video.setAttribute("controls", "true");
       video.setAttribute("playsinline", "true");
       videoContainer.appendChild(video);
     }
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const btnCall = document.getElementById('btn-call');
+  if (btnCall) {
+    alert('Click event was actived!');
+    btnCall.click(); // Tự động kích hoạt sự kiện click của button khi trang được load
   }
 });

@@ -35,7 +35,6 @@
             bottom: -10%;
         }
 
-        .toolbar-left,
         .toolbar-right {
             background-color: #DDE6ED;
             width: 15%;
@@ -45,18 +44,29 @@
             justify-content: center;
         }
 
+        .toolbar-left {
+            height: 100%;
+            width: 40%;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: left;
+            padding-left: 20px;
+            background-color: #DDE6ED;
+        }
+
         .time-linkroom {
-            font-size: 20px;
+            font-size: 18px;
             font-style: bold;
         }
 
         .toolbar-center {
             background-color: #DDE6ED;
-            width: 70%;
+            width: 63%;
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            padding-left: 5%;
         }
 
         .btn-wrapper {
@@ -70,6 +80,13 @@
 
         .toolbar-btn {
             display: block;
+            background-color: white;
+            border: none;
+        }
+
+        .btn-wrapper:hover,
+        .toolbar-btn:hover {
+            cursor: pointer;
         }
 
         .btn-icon {
@@ -87,32 +104,41 @@
 <body>
     <div class="container" id="app">
         <div class="screen">
-
+            <span>
+                {{vueMessage}}
+            </span>
         </div>
         <div class="toolbar">
             <div class="toolbar-left time-linkroom">
-                16:00 | {{roomId}}
+                <p class="time">16:00</p>
+                <span> | </span>
+                <p class="linkroom" v-if="roomId">{{roomId}}</p>
             </div>
             <div class="toolbar-center">
                 <div class="btn-wrapper">
-                    <a href="" class="toolbar-btn">
+                    <button href="" class="toolbar-btn" id="btn-call" @click="createRoom">
+                        <img src="./anh/phone-call.png" alt="" class="btn-icon">
+                    </button>
+                </div>
+                <div class="btn-wrapper">
+                    <button href="" class="toolbar-btn">
                         <img src="./anh/microphone.png" alt="" class="btn-icon">
-                    </a>
+                    </button>
                 </div>
                 <div class="btn-wrapper">
-                    <a href="" class="toolbar-btn">
+                    <button href="" class="toolbar-btn">
                         <img src="./anh/video-camera.png" alt="" class="btn-icon">
-                    </a>
+                    </button>
                 </div>
                 <div class="btn-wrapper">
-                    <a href="" class="toolbar-btn">
+                    <button href="" class="toolbar-btn">
                         <img src="./anh/present.png" alt="" class="btn-icon">
-                    </a>
+                    </button>
                 </div>
                 <div class="btn-wrapper">
-                    <a href="" class="toolbar-btn">
+                    <button href="" class="toolbar-btn">
                         <img src="./anh/closed.png" alt="" class="btn-icon">
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="toolbar-right">
