@@ -147,10 +147,31 @@ const vm = new Vue({
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const btnCall = document.getElementById('btn-call');
-  if (btnCall) {
-    alert('Click event was actived!');
-    btnCall.click(); // Tự động kích hoạt sự kiện click của button khi trang được load
-  }
-});
+// Test sự kiện sau khi load trang xong thì click luôn btn-call (Lỗi)
+// document.addEventListener('DOMContentLoaded', function () {
+//   const btnCall = document.getElementById('btn-call');
+//   if (btnCall) {
+//     alert('Click event was actived!');
+//     btnCall.click(); // Tự động kích hoạt sự kiện click của button khi trang được load
+//   }
+// });
+
+// Hàm load thời gian hệ thống
+const time = document.getElementById('time-display');
+
+function getTime() {
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  const minutes = currentTime.getMinutes();
+
+  const formattedTime = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`;
+
+  time.innerHTML = formattedTime;
+}
+
+// Gọi hàm getTime() khi trang web được load và sau mỗi phút (60,000 milliseconds)
+getTime();
+setInterval(getTime, 60000);
+
+
+

@@ -110,7 +110,7 @@
         </div>
         <div class="toolbar">
             <div class="toolbar-left time-linkroom">
-                <p class="time">16:00</p>
+                <p id="time-display"></p>
                 <span> | </span>
                 <p class="linkroom" v-if="roomId">{{roomId}}</p>
             </div>
