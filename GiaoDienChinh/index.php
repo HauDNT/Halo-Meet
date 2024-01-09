@@ -324,27 +324,18 @@
                         <table class="table_contact">
                             <tr>
                                 <th class="table_contact_create-room_left">
-                                    <button class="create-room" @click="createRoom">New Meeting</button>
+                                    <a href="../GiaoDienPhongHop/" class="create-room">New Meeting</a>
                                 </th>
                                 <th class="table_contact_create-room_input">
                                     <i id="keyboard"  class="fas fa-keyboard"></i>
-                                    <input  class="input_join" type="text" name id value placeholder="Enter ID or LINK ">
-                                    
+                                    <input class="input_join" type="text" name id value placeholder="Enter ID or LINK ">
                                 </th>
                                 <th class="table_contact_create-room_right">
-                                    <button class="join-room" @click="joinRoom">Join</button>
+                                    <a class="join-room" @click="joinRoom">Join</a>
                                 </th>
                             </tr>
                         </table>
                     </div>
-
-                    <!-- Đoạn code test để xem roomId và roomToken -->
-                    <!-- <div class="">
-                        style="width: 500px; margin-left: 10px; border: 1px solid black; overflow: scroll; padding: 10px">
-                        Show info:
-                        <p>Room ID: {{roomId}}</p>
-                        <p>Room Token: {{roomToken}}</p>
-                    </div> -->
                 </div>
                 <div class="container_right">
                     <!-- Slide chạy -->

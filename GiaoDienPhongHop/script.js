@@ -8,7 +8,7 @@ const vm = new Vue({
     roomToken: "",
     room: undefined,
     callClient: undefined,
-    vueMessage: 'Vue Hello'
+    vueMessage: 'Connect to Vue successful!'
   },
   computed: {
     roomUrl: function () {
@@ -22,7 +22,6 @@ const vm = new Vue({
     const roomId = urlParams.get("room");
     if (roomId) {
       this.roomId = roomId;
-
       await this.join();
     }
   },
@@ -156,6 +155,10 @@ const vm = new Vue({
 //   }
 // });
 
+document.getElementById('btn-call').addEventListener('click', function () {
+  document.getElementById('btn-copy').style.display='block';
+})
+
 // Hàm load thời gian hệ thống
 const time = document.getElementById('time-display');
 
@@ -173,5 +176,12 @@ function getTime() {
 getTime();
 setInterval(getTime, 60000);
 
-
-
+// Copy room id to clip board
+function copyRoomId() {
+  var copyText = document.getElementById('roomId_saved');
+  copyText.value = document.querySelector('.linkroom').innerText;
+  
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value);
+  alert("Đã copy link phòng. Bạn có thể gửi nó cho những người khác cùng tham gia.");
+}

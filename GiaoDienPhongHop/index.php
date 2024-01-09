@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phòng họp của bạn</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
     <style>
         * {
             padding: 0;
@@ -25,6 +26,20 @@
             height: 80%;
             width: 95%;
             border-radius: 5px;
+            padding: 10px 0 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .video-element {
+            width: 400px;
+            height: fit-content;
+            margin: 0 10px 5px 10px;
+        }
+
+        .video-element video {
+            width: 100%;
+            border-radius: 15px;
         }
 
         .toolbar {
@@ -58,6 +73,23 @@
         .time-linkroom {
             font-size: 18px;
             font-style: bold;
+        }
+
+        #btn-copy {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 100%;
+            display: none;
+        }
+
+        #btn-copy img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #btn-copy:hover {
+            cursor: pointer;
         }
 
         .toolbar-center {
@@ -102,17 +134,23 @@
 </head>
 
 <body>
-    <div class="container" id="app">
+    <div class="container">
         <div class="screen">
-            <span>
-                {{vueMessage}}
-            </span>
+            <div id="videos" class="video-element">
+                
+            </div>
         </div>
-        <div class="toolbar">
+        <div class="toolbar" id="app">
             <div class="toolbar-left time-linkroom">
                 <p id="time-display"></p>
                 <span> | </span>
                 <p class="linkroom" v-if="roomId">{{roomId}}</p>
+
+                <input type="hidden" value="" id="roomId_saved">
+                <button id="btn-copy" onclick="copyRoomId()">
+                    <img src="./anh/copy.png" alt="" title="Copy room ID to clip board">
+                </button>
+
             </div>
             <div class="toolbar-center">
                 <div class="btn-wrapper">
@@ -150,8 +188,12 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </body>
 
-    <script src="../api/api.js"></script>
-    <script src="../GiaoDienPhongHop/script.js"></script>
+<script src="../api/api.js"></script>
+<script src="../GiaoDienPhongHop/script.js"></script>
+
 </html>
