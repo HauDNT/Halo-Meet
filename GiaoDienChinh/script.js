@@ -41,7 +41,7 @@ const vm = new Vue({
 
         // Hàm xử lý sự kiện click vào nút "Join"
         joinRoom: async function() {
-            // console.log('join!')
+            console.log("Join")
             const roomId = prompt('Hãy đưa room id của bạn vào đây!')
             if (!roomId) {
                 return

@@ -320,7 +320,7 @@
                         </div>
                     </div>
                     <!-- Các nút tạo phòng & tham gia phòng qua link -->
-                    <div class="contact">
+                    <div class="contact" id="app">
                         <table class="table_contact">
                             <tr>
                                 <th class="table_contact_create-room_left">
@@ -331,7 +331,7 @@
                                     <input class="input_join" type="text" name id value placeholder="Enter ID or LINK ">
                                 </th>
                                 <th class="table_contact_create-room_right">
-                                    <a class="join-room" @click="joinRoom">Join</a>
+                                    <button class="join-room" @click="joinRoom">Join</button>
                                 </th>
                             </tr>
                         </table>

@@ -137,7 +137,7 @@
     <div class="container">
         <div class="screen">
             <div id="videos" class="video-element">
-                
+
             </div>
         </div>
         <div class="toolbar" id="app">
@@ -150,13 +150,16 @@
                 <button id="btn-copy" onclick="copyRoomId()">
                     <img src="./anh/copy.png" alt="" title="Copy room ID to clip board">
                 </button>
-
             </div>
             <div class="toolbar-center">
                 <div class="btn-wrapper">
                     <button href="" class="toolbar-btn" id="btn-call" @click="createRoom">
                         <img src="./anh/phone-call.png" alt="" class="btn-icon">
                     </button>
+                    <script>
+                        const btnCall = document.getElementById('btn-call');
+                        btnCall.click();
+                    </script>
                 </div>
                 <div class="btn-wrapper">
                     <button href="" class="toolbar-btn">
@@ -165,12 +168,13 @@
                 </div>
                 <div class="btn-wrapper">
                     <button href="" class="toolbar-btn">
-                        <img src="./anh/video-camera.png" alt="" class="btn-icon">
+                        <img style="display: none;" src="./anh/camera_on.png" alt="" class="btn-icon">
+                        <img src="./anh/camera_off.png" alt="" class="btn-icon">
                     </button>
                 </div>
                 <div class="btn-wrapper">
                     <button href="" class="toolbar-btn">
-                        <img src="./anh/present.png" alt="" class="btn-icon">
+                        <img src="./anh/present.png" alt="" class="btn-icon" @click="publish(true)">
                     </button>
                 </div>
                 <div class="btn-wrapper">

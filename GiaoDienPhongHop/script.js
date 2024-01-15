@@ -58,7 +58,7 @@ const vm = new Vue({
       );
 
       const videoElement = localTrack.attach();
-      this.addVideo(videoElement);
+      videoContainer.appendChild(videoElement);
 
       const roomData = await StringeeVideo.joinRoom(
         this.callClient,
@@ -100,6 +100,8 @@ const vm = new Vue({
       await room.publish(localTrack);
       console.log("room publish successful");
     },
+
+    // Hàm tạo room:
     createRoom: async function () {
       const room = await api.createRoom();
       const {
@@ -117,13 +119,18 @@ const vm = new Vue({
       await this.authen();
       await this.publish();
     },
-    join: async function () {
+
+    // Hàm join room:
+    joinRoom: async function () {
       const roomToken = await api.getRoomToken(this.roomId);
       this.roomToken = roomToken;
+      console.log("Join");
 
       await this.authen();
       await this.publish();
     },
+
+    // Hàm join room với id - hiển thị 1 promt:
     joinWithId: async function () {
       const roomId = prompt("Dán Room ID vào đây nhé!");
       if (roomId) {
@@ -146,6 +153,7 @@ const vm = new Vue({
   }
 });
 
+
 // Test sự kiện sau khi load trang xong thì click luôn btn-call (Lỗi)
 // document.addEventListener('DOMContentLoaded', function () {
 //   const btnCall = document.getElementById('btn-call');
@@ -154,6 +162,7 @@ const vm = new Vue({
 //     btnCall.click(); // Tự động kích hoạt sự kiện click của button khi trang được load
 //   }
 // });
+
 
 document.getElementById('btn-call').addEventListener('click', function () {
   document.getElementById('btn-copy').style.display='block';
