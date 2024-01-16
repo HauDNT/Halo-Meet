@@ -1,169 +1,174 @@
 <style>
-    *{
-        font-family:Arial, Helvetica, sans-serif;
-    }
-    body {
-        margin: 0; 
-        background: linear-gradient(-25.7deg, white 50%, #FFB534 50%);
-    }
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    .login-form {
-        margin: auto;
-        margin-top: 7.5%;
-        height: 500px;
-        width: 900px;
-        border-radius: 10px;
-        box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.3);
-    }
+body {
+    margin: 0;
+    background: linear-gradient(-25.7deg, white 50%, #FFB534 50%);
+}
 
-    .login-form > .left-form {
-        float: left;
-        height: 100%;
-        width: 40%;
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
-        background: white;
-    }
+.login-form {
+    margin: auto;
+    margin-top: 7.5%;
+    height: 500px;
+    width: 900px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
 
-    .login-form > .right-form {
-        float: right;
-        background: #FFB534;
-        height: 100%;
-        width: 60%;
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
-    }
+.login-form>.left-form {
+    float: left;
+    height: 100%;
+    width: 40%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    background: white;
+}
 
-    .left-form table {
-        width: 100%;
-    }
+.login-form>.right-form {
+    float: right;
+    background: #FFB534;
+    height: 100%;
+    width: 60%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
 
-    .login-form-title {
-        font-size: 30px;
-        font-family: Georgia, "Times New Roman", Times, serif;
-        padding: 25px 0px;
-    }
+.left-form table {
+    width: 100%;
+}
 
-    .left-form input {
-        height: 30px;
-        width: 80%;
-        padding-left: 10px;
-        background: transparent;
-        outline: none;
-        border: none;
-        border-bottom: 2px solid lightgray;
-        margin-top: 25px;
-        font-size: 20px;
-    }
+.login-form-title {
+    font-size: 30px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    padding: 25px 0px;
+}
 
-    .left-form input:focus {
-        border-bottom: 2px solid #FFB534;
-    }
+.left-form input {
+    height: 30px;
+    width: 80%;
+    padding-left: 10px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid lightgray;
+    margin-top: 25px;
+    font-size: 20px;
+}
 
-    .empty {
-        height: 80px
-    }
+.left-form input:focus {
+    border-bottom: 2px solid #FFB534;
+}
 
-    .login-button {
-        height: 40px;
-        width: 80%;
-        border-radius: 25px;
-        border: none;
-        margin-top: 50px;
-        font-size: 20px;
-        background: white;
-        color: black;
-        border: 2px solid #FFB534;
-    }
+.empty {
+    height: 80px
+}
 
-    .login-button:hover {
-        background: #FFB534;
-    }
+.login-button {
+    height: 40px;
+    width: 80%;
+    border-radius: 25px;
+    border: none;
+    margin-top: 50px;
+    font-size: 20px;
+    background: white;
+    color: black;
+    border: 2px solid #FFB534;
+}
 
-    .create-button{
-        height: 40px;
-        width: 80%;
-        border-radius: 25px;
-        border: none;
-        margin-top: 5px;
-        font-size: 20px;
-        background: white;
-        color: black;
-        border: 2px solid #FFB534;
-    }
-    .create-button:hover{
-        background: #FFB534;
-    }
+.login-button:hover {
+    background: #FFB534;
+}
 
-    .login-with-google{
-        height: 40px;
-        width: 80%;
-        border-radius: 25px;
-        border: none;
-        margin-top: 5px;
-        font-size: 20px;
-        background: white;
-        color: black;
-        border: 2px solid #FFB534;
-        position: relative;
-    }
+.create-button {
+    height: 40px;
+    width: 80%;
+    border-radius: 25px;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background: white;
+    color: black;
+    border: 2px solid #FFB534;
+}
 
-    .login-with-google:hover{
-        background: #FFB534;
-    }
-    .right-form > .logo img {
-        height: 100%;
-        width: 100%;
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
-    }
+.create-button:hover {
+    background: #FFB534;
+}
 
-    .fa-lock {
-        font-size: 20px;
-    }
+.login-with-google {
+    height: 40px;
+    width: 80%;
+    border-radius: 25px;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background: white;
+    color: black;
+    border: 2px solid #FFB534;
+    position: relative;
+}
 
-    .fa-user {
-        font-size: 20px;
-    }
+.login-with-google:hover {
+    background: #FFB534;
+}
 
-    .div_loi {
-        width: 280px;
-        height: 20px;
-        color: red;
-        margin-left: 40px;
-        font-weight: bold;
-    }
-    #eye{
-        position: relative;
-        top: -25px;
-        right :-130px;
-    }
+.right-form>.logo img {
+    height: 100%;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
 
-    .link-forgot-password{
-        margin-top: 40px;
-        font-size: 18px;
-    }
+.fa-lock {
+    font-size: 20px;
+}
 
-    .link-forgot-password a{
-        color: #3300FF;
-        text-decoration: none;
-    }
+.fa-user {
+    font-size: 20px;
+}
 
-    .link-forgot-password a:hover{
-        color: #FFB534;
-    }
-    .lg-google img{
-        position: absolute;
-        height: 40px;
-        width: 40px;
-        top: -2px;
-        right: 10px;
-    }
+.div_loi {
+    width: 280px;
+    height: 20px;
+    color: red;
+    margin-left: 40px;
+    font-weight: bold;
+}
+
+#eye {
+    position: relative;
+    top: -25px;
+    right: -130px;
+}
+
+.link-forgot-password {
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.link-forgot-password a {
+    color: #3300FF;
+    text-decoration: none;
+}
+
+.link-forgot-password a:hover {
+    color: #FFB534;
+}
+
+.lg-google img {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: -2px;
+    right: 10px;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="login-form">
     <div class="left-form">
-        <form action="?action=store&controller=login" method="post">
+        <form action="login.php" method="post">
             <table>
                 <tr>
                     <th>
@@ -175,13 +180,13 @@
                 <tr>
                     <th>
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Enter your username" class="regex-username" name="UserName">
+                        <input type="text" placeholder="Enter your username" class="regex-username" name="Username">
                     </th>
                 </tr>
                 <tr>
                     <th>
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Enter your passowrd" class="regex-password" name="Mat_khau">
+                        <input type="password" placeholder="Enter your passowrd" class="regex-password" name="Password">
                         <div id="eye">
                             <i class="far fa-eye"></i>
                         </div>
@@ -194,41 +199,31 @@
                                 Login
                             </button>
                         </a>
-                        
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <a href="">
-                            <button class="login-with-google">
-                                Login with Google   
-                                <div class="lg-google">
-                                    <img src="anh/lg-google.png" alt="">   
-                                </div>
-                            </button>            
-                        </a>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <a href="">
-                            <button class="create-button">
-                            Register
-                            </button>
-                        </a>                       
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <div class="link-forgot-password">
-                            <a href="">
-                                Forgot password
-                            </a>
-                        </div>
+
                     </th>
                 </tr>
             </table>
         </form>
+        <table>
+            <tr>
+                <th>
+                    <a href="register.php">
+                        <button class="create-button">
+                            Register
+                        </button>
+                    </a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="link-forgot-password">
+                        <a href="">
+                            Forgot password
+                        </a>
+                    </div>
+                </th>
+            </tr>
+        </table>
         <div class="div_loi">
             <?php if (isset($_SESSION['loi'])) {
                 echo $_SESSION['loi'];
@@ -244,7 +239,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="js/app.js"></script>
+<script src="../js/script.js"></script>
 <script>
 $(document).ready(function() {
     $('#eye').click(function() {

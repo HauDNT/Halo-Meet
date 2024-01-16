@@ -1,5 +1,5 @@
-const PROJECT_ID = "SK.0.gBTOGQlmb5sd5YJyJ1IwvXcHjW4yk3jK";
-const PROJECT_SECRET = "VlVIdEVWejVTWXlLR2dzTGJGc3EwUTZxaE94Q3ZPc0s=";
+const PROJECT_ID = "SK.0.dvxg8WxIPrIDzzIeh0P95zulDL32VhnB";
+const PROJECT_SECRET = "U1habldPN04xTVVaa1kxRm92VUUwbm4wUjRMYUxWdUg=";
 const BASE_URL = "https://api.stringee.com/v1/room2";
 
 class API {
