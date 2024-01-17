@@ -12,7 +12,7 @@ if($num_rows==1){
     $first = mysqli_fetch_array($result);
     $_SESSION['username'] = $first['ten_tk'];
     $_SESSION['name'] = $first['ten_nd'];
-    header("location:../GiaoDienChinh/index.php");
+    header("location:../GiaoDienChinh/");
     exit();
 }else {
         header("location:index.php?error=Đăng nhập không thành không!");

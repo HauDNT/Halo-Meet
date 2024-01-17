@@ -140,7 +140,10 @@ body {
 #eye {
     position: relative;
     top: -25px;
-    right: -130px;
+    right: -86%;
+    width: min-content;
+    padding: 4px;
+    font-size: 18px;
 }
 
 .link-forgot-password {
@@ -186,7 +189,7 @@ body {
                 <tr>
                     <th>
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Enter your passowrd" class="regex-password" name="Password">
+                        <input type="password" placeholder="Enter your password" class="regex-password" name="Password">
                         <div id="eye">
                             <i class="far fa-eye"></i>
                         </div>

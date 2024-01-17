@@ -136,7 +136,14 @@ const vm = new Vue({
   }
 });
 
+// Hiện nút copy ID room khi ấn vào nút gọi hoặc nút share:
 document.getElementById('btn-call').addEventListener('click', function () {
+  document.getElementById('toolbar-center').style.paddingLeft = "8%";
+  document.getElementById('btn-copy').style.display='block';
+});
+
+// Hiện nút copy ID room khi ấn vào nút gọi hoặc nút share:
+document.getElementById('btn-join').addEventListener('click', function () {
   document.getElementById('toolbar-center').style.paddingLeft = "8%";
   document.getElementById('btn-copy').style.display='block';
 })
