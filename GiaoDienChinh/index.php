@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,12 +127,11 @@
             top: 160px;
         }
 
-        .create-room,
-        .join-room {
+        .create-room {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
+            padding: 10px 40px;
+            font-size: 20px;
+            border-radius: 10px;
             text-decoration: none;
             text-align: center;
             background-color: #4CAF50;
@@ -145,18 +145,10 @@
             background-color: #45a049;
         }
 
-        .join-room {
-            background-color: #008CBA;
-        }
-
-        .join-room:hover {
-            background-color: #0077A3;
-        }
-
         .table_contact {
             position: absolute;
-            left: 80px;
-            top: 0px;
+            left: 65px;
+            top: -80px;
         }
 
         .table_contact_create-room_left {
@@ -171,22 +163,6 @@
         .table_contact_create-room_input {
             text-align: left;
             padding-left: 10px;
-        }
-
-        .input_join {
-            background-color: #f2f2f2;
-            border: none;
-            height: 35px;
-            width: 200px;
-            border-radius: 5px;
-            padding-left: 30px;
-            border: 3px solid transparent;
-            transition: border-bottom-color 0.3s ease;
-            outline: none;
-        }
-
-        .input_join:focus {
-            border: 3px solid #4CAF50;
         }
 
         .div_show_slide {
@@ -277,13 +253,55 @@
             top: 3.5px;
             left: 30px;
         }
+
+        .table_icon img {
+            height: 40px;
+            width: 40px;
+            margin-right: 50px;
+        }
+
+        .table_name a {
+            margin-right: 100px;
+            text-decoration: none;
+        }
+
+        .table_name button {
+            height: 60px;
+            width: 90px;
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            right: 100px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            ;
+
+        }
+
+        .table_name button:hover {
+            border-bottom: 2px solid #f9660f;
+            background: linear-gradient(0deg, #FFB534, #ffb534a3, #ffb53452, white);
+            border-radius: 5px;
+        }
+
+        .sign-out i {
+            font-size: 30px;
+            margin-right: 30px;
+            color: lightgray;
+        }
+
+        .sign-out i:hover {
+            color: #FFB534;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- import the webpage's StringEE javascript file -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.20.0/dist/axios.min.js"></script>
     <script src="https://cdn.stringee.com/sdk/web/2.2.1/stringee-web-sdk.min.js"></script>
-
 </head>
 
 <body>
@@ -299,14 +317,24 @@
             <div class="header_right">
                 <table class="table_header_right">
                     <th class="table_name">
-                        User
+                        <?php if (empty($_SESSION['name'])) { ?>
+                            <a href="../DangNhap/index.php">
+                                <button>
+                                    Sign In
+                                </button>
+                            </a>
+                        <?php } else { ?>
+                            <?php echo $_SESSION['name'] ?>
                     </th>
                     <th class="table_icon">
-                        ICON
-                        <a href>
-                            <img src alt>
+                        <img src="anh/user.png" alt="">
+                    </th>
+                    <th class="sign-out">
+                        <a href="signout.php">
+                            <i class="fas fa-sign-out-alt"></i>
                         </a>
                     </th>
+                <?php } ?>
                 </table>
             </div>
         </header>
@@ -315,8 +343,8 @@
                 <!-- Nội dung giới thiệu chương trình -->
                 <div class="content">
                     <div class="content_anh">
-                        <h1>Welcome Halo Meet.</h1>
-                        <p>
+                        <h1>Welcome to Halo Meet.</h1>
+                        <p style="text-align: justify;">
                             &ensp;&ensp;&ensp;Discover Halo Meet - your go-to online meeting platform! We
                             provide a seamless experience for events, conferences, and personal
                             meetings, connecting you effortlessly. With high-quality video calls
@@ -331,14 +359,7 @@
                     <table class="table_contact">
                         <tr>
                             <th class="table_contact_create-room_left">
-                                <a href="../GiaoDienPhongHop/" class="create-room">New Meeting</a>
-                            </th>
-                            <th class="table_contact_create-room_input">
-                                <i id="keyboard" class="fas fa-keyboard"></i>
-                                <input class="input_join" type="text" name id value placeholder="Enter ID or LINK ">
-                            </th>
-                            <th class="table_contact_create-room_right">
-                                <button class="join-room">Join</button>
+                                <a href="../GiaoDienPhongHop/" class="create-room">Start</a>
                             </th>
                         </tr>
                     </table>
@@ -355,7 +376,7 @@
                             <img src="anh/slide_2.png">
                         </div>
                         <div class="mySlides fade">
-                            <img src="anh/Anh2.png">
+                            <img src="anh/slide3.png">
                         </div>
                         <a class="prev" onclick="plusSlides(-1)">❮</a>
                         <a class="next" onclick="plusSlides(1)">❯</a>
