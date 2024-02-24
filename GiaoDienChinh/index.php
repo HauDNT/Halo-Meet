@@ -354,16 +354,16 @@
                         </p>
                     </div>
                 </div>
-                <!-- Các nút tạo phòng & tham gia phòng qua link -->
-                <div class="contact" id="app">
-                    <table class="table_contact">
-                        <tr>
-                            <th class="table_contact_create-room_left">
-                                <a href="../GiaoDienPhongHop/" class="create-room">Start</a>
-                            </th>
-                        </tr>
-                    </table>
-                </div>
+                
+<div class="contact" id="app">
+    <table class="table_contact">
+        <tr>
+            <th class="table_contact_create-room_left">
+                <a href="../GiaoDienPhongHop/" class="create-room">Start</a>
+            </th>
+        </tr>
+    </table>
+</div>
             </div>
             <div class="container_right">
                 <!-- Slide chạy -->

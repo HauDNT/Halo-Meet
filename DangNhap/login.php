@@ -15,6 +15,6 @@ if ($num_rows == 1) {
     header("location:../GiaoDienChinh/");
     exit();
 } else {
-    header("location:index.php?error=Đăng nhập không thành không!");
+    header("location:index.php?error=Đăng nhập không thành công!");
     mysqli_close($connect);
 }

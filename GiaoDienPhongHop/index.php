@@ -172,7 +172,6 @@
                 <p id="time-display"></p>
                 <span> | </span>
                 <p class="linkroom" v-if="roomId">{{ roomId }}</p>
-                <!-- <p><a v-bind:href="roomUrl" v-if="roomId" target="_blank">{{ roomUrl }}</a></p> -->
                 <input type="hidden" value="" id="roomId_saved" />
                 <button id="btn-copy" onclick="copyRoomId()">
                     <img src="https://cdn-icons-png.flaticon.com/128/8860/8860785.png" alt=""
